@@ -1,0 +1,83 @@
+/* Modern Category Bar */
+.category-bar {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 80px;
+    /* Below Navbar */
+    z-index: 900;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.category-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.category-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.category-item:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-item.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Remove old image styles */
+.category-image {
+    display: none;
+}
+
+.category-name {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+@media (max-width: 768px) {
+    .category-bar {
+        top: 56px;
+        /* Mobile navbar height */
+        padding: 12px 0;
+    }
+
+    .category-container {
+        justify-content: flex-start;
+        padding: 0 16px;
+    }
+}

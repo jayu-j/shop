@@ -1,0 +1,187 @@
+/* Dynamic Product Slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    /* Tall enough for product display */
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 48px;
+    border: 1px solid var(--border);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: flex;
+    visibility: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Split Layout */
+.slide-content {
+    flex: 1;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    z-index: 2;
+}
+
+.slide-image-wrapper {
+    flex: 1;
+    position: relative;
+    background-color: #e2e8f0;
+    overflow: hidden;
+}
+
+.slide-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Or contain depending on image quality */
+    object-position: center;
+    transition: transform 6s ease;
+}
+
+.slide.active .slide-image-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Typography */
+.ad-badge {
+    background-color: var(--accent);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.ad-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.ad-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.ad-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.ad-price-main {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.ad-price-original {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.ad-cta {
+    background-color: var(--primary);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 99px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+}
+
+.ad-cta:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 24px;
+    left: 48px;
+    /* Left aligned */
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 40px;
+    height: 4px;
+    /* Bar style */
+    background-color: #cbd5e1;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary);
+    width: 60px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-slider {
+        height: auto;
+        min-height: 500px;
+    }
+
+    .slide {
+        flex-direction: column-reverse;
+    }
+
+    .slide-content {
+        padding: 32px 24px 80px;
+        /* Bottom padding for dots */
+        flex: none;
+    }
+
+    .slide-image-wrapper {
+        height: 300px;
+        flex: none;
+    }
+
+    .ad-title {
+        font-size: 2rem;
+    }
+
+    .slider-dots {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 24px;
+    }
+}
