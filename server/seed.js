@@ -6,8 +6,13 @@ const User = require('./models/User');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('MongoDB Connected');
+    const dbURI = process.argv[2] || process.env.MONGODB_URI;
+    if (!dbURI) {
+      console.error('Mongo URI not found in arguments or .env');
+      process.exit(1);
+    }
+    await mongoose.connect(dbURI);
+    console.log(`MongoDB Connected to: ${dbURI.includes('localhost') || dbURI.includes('127.0.0.1') ? 'Localhost' : 'Remote Cluster'}`);
   } catch (error) {
     console.error('Error connecting to MongoDB:', error.message);
     process.exit(1);
