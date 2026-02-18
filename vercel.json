@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "outputDirectory": "client/build",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

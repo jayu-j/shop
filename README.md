@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ShopHub - E-Commerce Website
 
 A full-stack e-commerce website built with the MERN stack (MongoDB, Express.js, React.js, Node.js).
@@ -129,3 +130,6 @@ The app will be available at:
 After seeding the database:
 - Email: admin@example.com
 - Password: admin123
+=======
+# shop
+>>>>>>> 28ebf4cc106ced86cbe1ed58415b4ef50ce70e73
