@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "install:all": "npm install && cd server && npm install && cd ../client && npm install",
     "dev": "concurrently \"npm run server:dev\" \"set NODE_OPTIONS=--no-deprecation && npm run client\"",
-    "build": "cd client && npm install && npm run build"
+    "build": "npm install && cd server && npm install && cd ../client && npm install && npm run build"
   },
   "keywords": [
     "ecommerce",
